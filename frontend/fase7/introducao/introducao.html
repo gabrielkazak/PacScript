@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../compartilhado/conteudo.css">
+    <link rel="stylesheet" href="conteudo.css">
+    <title>Document</title>
+</head>
+<body data-questao="questao7">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../../musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio>  
+    <div class="container">
+        <div class="conteudo">
+            <div class="borda"></div>
+            <h1 class="titulo">Introdução a operadores de comparação</h1>
+            <p class="texto">
+                Em programação, operadores de comparação são essenciais para tomar decisões com base em condições. Eles comparam dois valores e retornam um valor booleano: true (verdadeiro) ou false (falso). Os principais operadores de comparação são:
+<br><br>
+== (igualdade), != (diferença)
+<br>
+> (maior que), < (menor que)
+<br>
+>= (maior ou igual a), <= (menor ou igual a)
+<br><br>
+
+Por exemplo, imagine que queremos verificar se o jogador ganhou o jogo. Podemos usar: se (pontuacao >= 100), o que significa: "Se a pontuação for maior ou igual a 100, então...". Já para verificar se ele perdeu todas as vidas, podemos usar: se (vidas == 0).
+
+<br><br>
+
+Esses operadores são especialmente úteis quando queremos executar comandos somente quando uma condição for verdadeira, como mostrar uma mensagem, parar o jogo, ou liberar um novo nível.
+Também podemos usar != para verificar se algo é diferente, como: se (cor != "vermelho"), o que seria interpretado como "se a cor não for vermelha...".
+
+<br><br>
+
+É importante lembrar que, ao comparar valores, estamos sempre perguntando algo ao programa, e a resposta será sempre sim ou não (true ou false). Por isso, esses operadores não mudam valores — eles apenas avaliam e retornam um resultado booleano.
+
+<br><br>
+
+Dominar os operadores de comparação é fundamental para criar programas interativos e inteligentes. Eles são a base da tomada de decisão, e sem eles, seria impossível fazer com que um código reagisse de forma lógica aos dados que recebe.
+
+
+            </p>
+            <div class="next_back">
+                <a href="../../fase6/fase6.html"><button class="button-19" role="button">Voltar para fase 6</button></a>
+                <button class="button-19 next" role="button">Próximo</button>
+            </div>
+        </div>
+        <div class="questao">
+            <div class="borda"></div>
+            <h1 class="titulo">Questão de fixação</h1>
+            <p class="texto">
+                Qual das opções abaixo, utiliza corretamente os operadores de comparação?
+            </p>
+            <div class="opcoes">
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+            </div>
+            <div class="botoes">
+                <button class="button-19 return" role="button">Voltar pro conteúdo</button>
+                <div class="pontuação">
+                    <p class="pontosTXT">Pontuação:</p>
+                    <p class="pontosUsuario"></p>
+                </div> 
+                <a href="../fase7.html"><button class="button-19 next_level" role="button">Ir para fase 7</button></a>
+            </div>
+        </div>
+    </div>
+    <script src="introducao.js"></script>
+    <script src="../../compartilhado/fixação.js"></script>
+</body>
+</html>

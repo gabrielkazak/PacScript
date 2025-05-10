@@ -1,0 +1,292 @@
+body {
+    background: linear-gradient(0deg, rgba(184,14,255,1) 0%, rgba(90,16,128,1) 32%, rgba(12,18,23,1) 80%);
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jogo__base {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    font-size: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+canvas {
+    position: relative;
+    z-index: 1;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.rodape{
+    display:flex;
+    font-size: 20px;
+    justify-content: space-evenly;
+    color: white;
+}
+
+.placar{
+    margin-top: 0;
+    font-size: 32px;
+    position: absolute;
+    margin-right: 400px;
+}
+
+.vidas{
+    margin: 0;
+    color: red;
+    font-size: 32px;
+    position: absolute;
+    margin-left: 400px;
+}
+
+.tela__inicial{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jogar{
+    font-family: "Tourney";
+    color: #FAD210;
+    background-color: transparent;
+    font-size: 44px;
+    border: 3px solid #FAD210;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.5s ease;
+    padding: 10px;
+    margin-top: 3rem;
+  }
+
+  .jogar:hover{
+    border: 3px solid #ffffff;
+  }
+
+.restart{
+    display: none;
+    font-family: "Tourney";
+    color: #FAD210;
+    background-color: transparent;
+    font-size: 44px;
+    border: 3px solid #FAD210;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.5s ease;
+    padding: 10px;
+    margin-top: 3rem;
+}
+
+.restart:hover{
+    border: 3px solid #ffffff;
+}
+
+h2{
+    margin: 2rem;
+}
+
+.menu_titulo{
+    font-family: 'Tourney';
+    text-decoration: none;
+    display: inline-block;
+    transform-origin: center;
+    transition: transform 6s ease-in-out;
+    font-size: 80px;
+    color: #FAD210;
+    font-weight: 500;
+     text-shadow: 
+        2px 2px 0px #B8860B,   /* Camada 1 - sombra dourada mais escura */
+        4px 4px 0px #8B6508,   /* Camada 2 - aumentando a profundidade */
+        6px 6px 0px #704A07,   /* Camada 3 - sombra ainda mais escura */
+        0 0 8px rgba(255, 165, 0, 0.6); /* Brilho sutil */
+
+    /* Removendo qualquer preenchimento estranho */
+    background: none;
+    -webkit-text-fill-color: unset;
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 
+            2px 2px 0px #B8860B,
+            4px 4px 0px #8B6508,
+            6px 6px 0px #704A07,
+            0 0 8px rgba(255, 165, 0, 0.6);
+    }
+    100% {
+        text-shadow: 
+            2px 2px 1px #B8860B,
+            4px 4px 1px #8B6508,
+            6px 6px 1px #704A07,
+            0 0 10px rgba(255, 165, 0, 0.8);
+    }
+}
+
+
+.placar{
+        font-family: "Audiowide", serif;
+        font-weight: 400;
+        font-style: normal;
+}
+
+.vidas{
+    color: yellow;
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.vitoria{
+    display: none;
+    padding: 0;
+}
+
+.telaVitoria{
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Tourney';
+    border: 10px solid #FAD210;
+    border-radius: 50px;
+    padding: 2rem;
+}
+
+.botoes{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.texto{
+    text-decoration: none;
+    font-size: 44px;
+}
+
+.telaRestart{
+    display: none;
+}
+
+.instrucao{
+    width: 60%;
+    font-family: "Tourney";
+    font-size: 32px;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.alteracoes{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.alteracao_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+}
+
+.alteracao_titulo{
+    font-family: "Tourney";
+    font-size: 28px;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}
+
+.alteracao_input{
+    font-family: "Audiowide", serif;
+    font-size: 24px;
+    border-radius: 12px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid rgb(50, 50, 50);
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+.next_back{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .button-18 {
+    align-items: center;
+    background-color: #FAD210;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--fonte-principal);    
+    font-size: 16px;
+    font-weight: bold;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    text-decoration: none;
+    transition: 0.75s ease;
+  }
+  
+  .button-18:hover,
+  .button-18:focus { 
+    background-color: #222222;
+    color: #ffffff;
+  }
+  
+  .button-18:active {
+    background: #525500;
+    color: rgb(255, 255, 255, .7);
+  }
+  
+  .button-18:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+  }

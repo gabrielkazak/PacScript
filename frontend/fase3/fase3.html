@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../compartilhado/fases.css">
+    <link rel="stylesheet" href="fase3.css">
+    <title>Pac-Script</title>
+</head>
+<body data-fase="fase3">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../musica2.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio> 
+    <div class="overlay"></div>
+    <div class="dica">
+        <p class="textoDica"></p>
+        <button class="fechar" role="button">Fechar dica</button>
+    </div>
+    <div class="setorPrompt">
+        <div class="cabecalho">
+            <a href="../menu/menu.html"><h2 class="titulo">PAC-SCRIPT</h2></a>
+            <p class="fase">FASE 3</p>
+        </div>
+        <p class="instrucao">
+            Nesta fase, o desafio é implementar um sistema de vidas para o Pac-Man utilizando pseudocódigo. Para isso, você deve declarar uma variável, e utilizando o sinal de igual, armazenar um valor para a quantidade de vidas do personagem, iniciando com um número inteiro à sua escolha, como por exemplo 3. Em seguida, é necessário criar uma lógica que diminua essa variável em 1 sempre que o Pac-Man for atingido por um fantasma. Quando o valor da variável chegar a zero, uma mensagem de "Game Over" deve ser exibida na tela para o jogador, caso contrário, as vidas irão diminuir até o infinito negativo. É fundamental lembrar que o operador = não serve para comparar valores, mas sim para atribuir um novo valor a uma variável — esse é um ponto chave da fase.
+            <br><br>
+            A lógica precisa ser detalhada com precisão. Apenas escrever "tirar uma vida" ou "game over" não será suficiente. O pseudocódigo deve deixar claro quando e como a variável de vidas é atualizada, qual é o evento que causa essa atualização (como uma colisão com um fantasma), e o que acontece pra haver a chamada da tela de game over. Este exercício reforça o conceito de que variáveis armazenam valores que mudam durante a execução de um programa, e que o controle de fluxo do jogo depende diretamente dessas alterações.
+        </p>
+        <textarea spellcheck="false" class="input" name="input" id="codigoUsuario">
+//Crie aqui o sistema de vidas
+
+//Determine aqui quando a vida sofre diminuição
+            
+//Crie aqui uma condição de game over
+        </textarea>
+        <div class="botoes">
+            <button class="button-18" id="botaoDica" role="button">Dica 0/3</button>  
+            <button class="button-18" id="botao" role="button">Testar</button>
+            <a href="../fase4/introducao/introducao.html" class="button-18 avancar" id="avancar" role="button">Avançar</a>
+        </div>
+        <div class="botoesInferior">
+            <div class="pontuação">
+                <p class="pontosTXT">Pontuação:</p>
+                <p class="pontosUsuario"></p>
+            </div> 
+        </div>
+        <a href="./introducao/introducao.html"><button class="voltar" role="button">Ver Conteúdo</button></a>
+    </div>
+    <div class="jogo__base">
+        <div class="background"></div>
+        <canvas id="tela" width="570" height="630"></canvas>
+        <p class="vidas">♥</p>
+        <img src="../imagens/gameOver.png" alt="" class="gameOver">
+    </div>
+    
+    <script type="module" src="fase3.js"></script>
+    <script src="../compartilhado/persistencia.js"></script>
+</body>
+</html>

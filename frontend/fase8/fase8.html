@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fase8.css">
+    <title>Pac-Script</title>
+</head>
+<body data-fase="fase8">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../musica2.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio> 
+    <div class="overlay"></div>
+    <div class="dica">
+        <p class="textoDica"></p>
+        <button class="fechar" role="button">Fechar dica</button>
+    </div>
+    <div class="setorPrompt">
+        <div class="cabecalho">
+            <a href="../menu/menu.html"><h2 class="titulo">PAC-SCRIPT</h2></a>
+            <p class="fase">FASE 8</p>
+        </div>
+        <p class="instrucao">
+            Nesta fase, você vai desafiar suas habilidades em lógica! No mundo da programação, operadores lógicos são fundamentais para tomar decisões e controlar o fluxo do jogo, eles nos permitem combinar várias condições e criar regras poderosas.
+            <br><br>
+            A tarefa aqui é preencher corretamente os operadores lógicos em uma expressão que vai determinar o comportamento de nosso jogo. Com isso, você verá como a combinação de condições pode criar decisões complexas e impactar diretamente o jogo, de uma forma que só a lógica pode proporcionar!
+            <br><br>
+            A frase abaixo é a representação por extenso da condicional ao lado, leia com atenção e preencha os campos:
+            <br><br>
+            <span class="frase">Se os pontos coletados forem iguais a 180 e os powerUpsColetados forem iguais a 4, ou, se os fantasmas no mapa forem iguais a 0 e vidasAcabaram for falso.</span>
+        </p>
+        <div class="botoes">
+            <button class="button-18" id="botaoDica" role="button">Dica 0/3</button>  
+            <button class="button-18" id="botao" role="button">Testar</button>
+            <a href="../fase9/fase9.html" class="button-18 avancar" id="avancar" role="button">Avançar</a>
+        </div>
+        <div class="botoesInferior">
+            <div class="pontuação">
+                <p class="pontosTXT">Pontuação:</p>
+                <p class="pontosUsuario"></p>
+            </div> 
+        </div>
+        <a href="./introducao/introducao.html"><button class="voltar" role="button">Ver Conteúdo</button></a>
+    </div>
+
+    <div class="dados">
+        <h2 class="titulo">Operadores Lógicos</h2>
+        <div class="group">
+            <div class="selector">
+                <label>Se ( pontosColetados == 180 (int)</label><br>
+                <select class="options"  style="margin-left: 1rem;">
+                    <option value="" disabled selected hidden></option>
+                    <option>||</option>
+                    <option>&&</option>
+                    <option>!</option>
+                  </select>
+            
+              </div>
+            
+              <div class="selector">
+                <p>powerUpsColetados == 4 (int) )</p>  
+              </div>
+        </div>
+        <div class="group">
+              <div class="selector center">
+                <select class="options">
+                    <option value="" disabled selected hidden></option>
+                    <option>||</option>
+                    <option>&&</option>
+                    <option>!</option>
+                  </select>
+                  
+              </div>
+        </div>
+        <div class="group">
+            <div class="selector">
+                <p>( fantasmasNoMapa == 0 (int)</p>
+                  
+              </div>
+            
+              <div class="selector">
+                <select class="options" style="margin-right: 1rem;">
+                    <option value="" disabled selected hidden>  </option>
+                    <option>|| !</option>
+                    <option>&& !</option>
+                    <option>! !</option>
+                  </select>
+                <label>vidasAcabaram (bool))</label><br> 
+                  
+              </div>
+            </div>
+        </div>
+    <script type="module" src="fase8.js"></script>
+    <script src="../compartilhado/objetivas.js"></script>
+
+</body>
+</html>

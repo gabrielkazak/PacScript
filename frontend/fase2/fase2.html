@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../compartilhado/fases.css">
+    <link rel="stylesheet" href="fase2.css">
+    <title>Pac-Script</title>
+</head>
+<body data-fase="fase2">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../musica2.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio> 
+    <div class="overlay"></div>
+    <div class="dica">
+        <p class="textoDica"></p>
+        <button class="fechar" role="button">Fechar dica</button>
+    </div>
+    <div class="setorPrompt">
+        <div class="cabecalho">
+            <a href="../menu/menu.html"><h2 class="titulo">PAC-SCRIPT</h2></a>
+            <p class="fase">FASE 2</p>
+        </div>
+        <p class="instrucao">
+            Nesta fase, o desafio é criar a base fundamental do jogo: O mapa, o Pac-Man e permitir que ele se movimente pelo mapa, tudo isso, claro, com pseudocódigo. Na hora de criar o código, seja específico, descreva o mapa com sua quantidade de linhas e colunas, uma cor para as bordas e lembre-se que um personagem precisa transitar dentro do mapa. A respeito do Pac-Man, fale sobre o formato dele, a cor e posicione-o centralizado no mapa. E sobre sua movimentação, descreva o plano de movimento dele e para que direções ele pode ir.
+            <br>
+            <br>
+            Lembre-se: o computador faz exatamente o que você manda, nem mais nem menos. Portanto, ao escrever o pseudocódigo, não basta simplesmente dizer “criar mapa” ou “mover Pac-Man”. Cada detalhe precisa ser especificado com exatidão.
+            <br>
+            <br>
+            Parâmetros de ajuda: Linhas = 21, Colunas = 19
+            <br>
+        </p>
+        <textarea spellcheck="false" class="input" name="input" id="codigoUsuario">
+//Crie aqui o mapa
+
+// Crie aqui o Pac-Man
+            
+// Crie a logica de movimento aqui
+        </textarea>
+        <div class="botoes">
+            <button class="button-18" id="botaoDica" role="button">Dica 0/3</button>  
+            <button class="button-18" id="botao" role="button">Testar</button>
+            <a href="../fase3/introducao/introducao.html" class="button-18 avancar" id="avancar" role="button">Avançar</a>
+        </div>
+        <div class="botoesInferior">
+            <div class="pontuação">
+                <p class="pontosTXT">Pontuação:</p>
+                <p class="pontosUsuario"></p>
+            </div> 
+        </div>
+        <a href="./introducao/introducao.html"><button class="voltar" role="button">Ver Conteúdo</button></a>
+    </div>
+    <div class="jogo__base">
+        <div class="background"></div>
+        <canvas id="tela" width="570" height="630"></canvas>
+    </div>
+    
+    <script type="module" src="fase2.js"></script>
+    <script src="../compartilhado/persistencia.js"></script>
+
+</body>
+</html>

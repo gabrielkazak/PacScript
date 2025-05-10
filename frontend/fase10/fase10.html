@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fase10.css">
+    <title>Pac-Script</title>
+</head>
+<body data-fase="fase10">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio> 
+    <div class="tela__inicial">
+        <a class="menu_titulo" href="../menu/menu.html"><h2>PAC-SCRIPT</h2></a>
+        <p class="instrucao">
+            Parabéns por ter chegado até aqui!!! Você superou todas as fases propostas, e agora está na hora de jogar o Pac-man original você mesmo.<br><br>
+            Abaixo você pode customizar um pouco da sua experiência, aproveite!!!.
+        </p>
+        <div class="alteracoes">
+            <div class="alteracao_item">
+                <p class="alteracao_titulo">Cor do Mapa:</p>
+                <input class="alteracao_input" type="text">
+            </div>
+            <div class="alteracao_item">
+                <p class="alteracao_titulo">Cor do Pac-man:</p>
+                <input class="alteracao_input" type="text">
+            </div>
+            <div class="alteracao_item">
+                <p class="alteracao_titulo">Valor do Ponto:</p>
+                <input class="alteracao_input" type="text">
+            </div>
+            <div class="alteracao_item">
+                <p class="alteracao_titulo">Quantidade de Vidas:</p>
+                <input class="alteracao_input" type="text">
+            </div>
+        </div>
+        <div class="next_back">
+            <a href="../fase9/fase9.html"><button class="button-19 jogar" role="button">VOLTAR</button></a>
+            <button class="button-19 jogar start" role="button">JOGAR</button>
+        </div>
+    </div>
+    
+    <div class="jogo__base">
+        <div class="background"></div>
+        <canvas id="tela" width="570" height="630"></canvas>
+        <div class="rodape">
+            <p class="placar">0</p>
+            <p class="vidas"> ♥</p>
+    </div>
+    </div>
+
+    <div class="telaRestart">
+        <button class="restart">Restart</button>
+    </div>
+
+    <div class="telaVitoria">
+        <p class="texto">Você Venceu!!! <br><br>Gostaria de Jogar de novo?</p>
+        <div class="botoes">
+            <a href="../menu/menu.html" class="button-18 voltar" role="button">Voltar Pro Menu</a>
+            <a href="#" class="button-18 rejogar" role="button">Reiniciar Fase</a>
+        </div>
+    </div>
+
+    <script type="module" src="fase10.js"></script>
+</body>
+</html>

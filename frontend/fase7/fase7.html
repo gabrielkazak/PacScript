@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../compartilhado/fases.css">
+    <link rel="stylesheet" href="fase7.css">
+
+    <title>Pac-Script</title>
+</head>
+<body data-fase="fase7">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../musica2.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio> 
+    <div class="overlay"></div>
+    <div class="dica">
+        <p class="textoDica"></p>
+        <button class="fechar" role="button">Fechar dica</button>
+    </div>
+    <div class="setorPrompt">
+        <div class="cabecalho">
+            <a href="../menu/menu.html"><h2 class="titulo">PAC-SCRIPT</h2></a>
+            <p class="fase">FASE 7</p>
+        </div>
+        <p class="instrucao">
+            Nesta fase, você aprenderá como usar operadores de comparação para tomar decisões dentro do seu código. Esses operadores são fundamentais para verificar se determinadas condições foram atendidas antes de executar uma ação, como iniciar uma fase ou liberar uma funcionalidade. Entre os operadores mais utilizados estão:
+        == (igual a), != (diferente de), >= (maior ou igual a), <= (menor ou igual a), > (maior que) e < (menor que).
+
+        <br><br>
+        Sua missão é verificar se os parâmetros da fase estão corretamente configurados antes de começar o jogo. Para isso, você deverá utilizar esses operadores para comparar valores, são eles os 4 parâmetros a seguir: pontos criados no mapa, quantidade de vidas do pacman que deve ser maior que 0, quantidade de fantasmas que deve ser > que a quantidade de pacman no mapa, a posição inicial do pacman deve ser diferente da quantidade de fantasmas.
+        <br><br>
+        Essas comparações ajudam a manter o controle lógico do seu jogo e garantem que ele funcione como esperado desde o início da fase. Lembre-se: operadores de comparação não alteram valores, eles apenas verificam condições e retornam verdadeiro ou falso, o que permite tomar decisões com base nisso. 
+        <br>
+        <br>
+            Parâmetros de ajuda: Pontos criados deve ser igual a 181.
+        <br>
+        </p>
+        <textarea spellcheck="false" class="input" name="input" id="codigoUsuario">
+
+        </textarea>
+        <div class="botoes">
+            <button class="button-18" id="botaoDica" role="button">Dica 0/3</button>  
+            <button class="button-18" id="botao" role="button">Testar</button>
+            <a href="../fase8/introducao/introducao.html" class="button-18 avancar" id="avancar" role="button">Avançar</a>
+        </div>
+        <div class="botoesInferior">
+            <div class="pontuação">
+                <p class="pontosTXT">Pontuação:</p>
+                <p class="pontosUsuario"></p>
+            </div> 
+        </div>
+        <a href="./introducao/introducao.html"><button class="voltar" role="button">Ver Conteúdo</button></a>
+    </div>
+    <div class="jogo__base">
+        <div class="background"></div>
+        <canvas id="tela" width="570" height="630"></canvas>
+        <p class="vidas">♥</p> 
+    </div>
+    
+    <script type="module" src="fase7.js"></script>
+    <script src="../compartilhado/persistencia.js"></script>
+
+</body>
+</html>

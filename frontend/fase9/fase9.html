@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../compartilhado/fases.css">
+    <link rel="stylesheet" href="fase9.css">
+    <title>Pac-Script</title>
+</head>
+<body data-fase="fase9">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../musica2.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio> 
+    <div class="overlay"></div>
+    <div class="dica">
+        <p class="textoDica"></p>
+        <button class="fechar" role="button">Fechar dica</button>
+    </div>
+    <div class="setorPrompt">
+        <div class="cabecalho">
+            <a href="../menu/menu.html"><h2 class="titulo">PAC-SCRIPT</h2></a>
+            <p class="fase">FASE 9</p>
+        </div>
+        <p class="instrucao">
+            Parabéns por ter chegado até aqui jogador, espero que tenha sido uma jornada divertida e interativa, essa é a útlima fase prática que você vai desenvolver por enquanto! Está na hora de colocar em prática tudo que você aprendeu até agora, como variáveis, constantes, operadores de comparação, atribuição e lógicos, resolvendo os problemas do código abaixo!
+<br><br>
+            O código fonte do nosso Pac-man está todo bagunçado e gerando vários bugs, é seu trabalho resolver isso linha por linha. Os bugs mais notáveis são, algumas constantes e variáveis estão mal definidos, alguns tipos de dados estão incorretos, e algumas expressões lógicas estão incorretas. Tenha calma e resolva esse problemão pra gente. Boa sorte!!!
+
+        </p>
+        <textarea spellcheck="false" class="input" name="input" id="codigoUsuario">
+//CRIAÇÃO DO MAPA
+iniciar criação do mapa
+o mapa deve ter 21 linhas e 19 colunas
+deve ter bordas pretas
+finalizar criação do mapa
+
+//CONSTANTES
+VIDAS = 10(bool)
+VALOR_PONTO = PI(float)
+
+//VARIÁVEIS
+total_pontos == 0(int)
+vidas_atuais = VIDAS
+
+//MUDANÇAS DE VALORES
+se Pac-man pegar ponto (total_pontos -= VALOR_PONTO)
+se Pac-man bater em um fantasma (vidas_atuais += 1)
+
+//OPERAÇÕES DE COMPARAÇÃO E LÓGICA
+se (posição do pacman == posição do fantasma || vidas_atuais > 0) voltar pras posições iniciais
+se (total_pontos > 180) mostrar tela de vitória 
+            
+        </textarea>
+        <div class="botoes">
+            <button class="button-18" id="botaoDica" role="button">Dica 0/3</button>  
+            <button class="button-18" id="botao" role="button">Testar</button>
+            <a href="../fase10/fase10.html" class="button-18 avancar" id="avancar" role="button">Avançar</a>
+        </div>
+        <div class="botoesInferior">
+            <div class="pontuação">
+                <p class="pontosTXT">Pontuação:</p>
+                <p class="pontosUsuario"></p>
+            </div> 
+        </div>
+        <a href="../fase8/fase8.html"><button class="voltar" role="button">Voltar para fase 8</button></a>
+    </div>
+    <div class="jogo__base">
+        <div class="background"></div>
+        <canvas id="tela" width="570" height="630"></canvas>
+        <div class="rodape">
+            <p class="vidas">true ♥</p>
+            <p class="placar"></p>
+        </div>
+        <img src="../imagens/gameOver.png" alt="" class="gameOver">
+    </div>
+    
+    <script type="module" src="fase9.js"></script>
+    <script src="../compartilhado/persistencia.js"></script>
+
+</body>
+</html>

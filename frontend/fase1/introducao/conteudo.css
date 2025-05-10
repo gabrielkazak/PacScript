@@ -1,0 +1,181 @@
+
+:root {
+  --amarelo: #FAD210;
+  --fonte-principal:'Tourney';
+}
+
+body{
+    background: rgb(184,14,255);
+    background: linear-gradient(0deg, rgba(184,14,255,1) 0%, rgba(90,16,128,1) 32%, rgba(12,18,23,1) 80%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 98vh;
+}
+
+.conteudo {
+    width: 80%;
+    padding: 1rem 2rem;
+    border: 3px solid #FAD210;
+    border-radius: 1rem;
+    position: relative;
+    box-sizing: border-box;
+    background: linear-gradient(0deg, rgba(184,14,255,1) 0%, rgba(90,16,128,1) 32%, rgba(12,18,23,1) 80%);
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.conteudo::after, .conteudo::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent, rgb(255, 0, 255));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 6px 6px;
+    border-radius: 16px;
+    animation: 5s spin linear infinite;
+}
+
+.conteudo::before{
+    filter: blur(10rem);
+    opacity: 0.5;
+}
+
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+
+.borda {
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    border: 3px solid #FAD210;
+    border-radius: 1.5rem;
+    z-index: -1;
+}
+
+.titulo{
+    font-family: "Tourney";
+    font-size: 32px;
+    color: #FAD210;
+    font-weight: 500;
+}
+
+.texto{
+    font-family: "Tourney";
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    text-align: justify;
+}
+
+/* CSS */
+.button-19 {
+  appearance: button;
+  background-color: #4e4102;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Tourney";
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #ddba08;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  font-family: "Tourney";
+}
+
+.button-19,
+.button-19:focus {
+  user-select: auto;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.button-19:disabled {
+  cursor: auto;
+}
+
+.button-19:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+/* Largura e cor de fundo da barra */
+.input::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Fundo da barra (trilho) */
+.input::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Parte que se move (polegar) */
+.input::-webkit-scrollbar-thumb {
+  background: var(--amarelo);
+  border-radius: 10px;
+}
+
+/* Ao passar o mouse */
+.input::-webkit-scrollbar-thumb:hover {
+  background: var(--amarelo);
+  cursor: default;
+}
+
+.next_back{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}

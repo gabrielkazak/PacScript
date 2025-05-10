@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../compartilhado/conteudo.css">
+    <link rel="stylesheet" href="conteudo.css">
+    <title>Document</title>
+</head>
+<body data-questao="questao8">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../../musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio>  
+    <div class="container">
+        <div class="conteudo">
+            <div class="borda"></div>
+            <h1 class="titulo">Introdução a Operadores Lógicos</h1>
+            <p class="texto">
+                Em programação, às vezes precisamos tomar decisões com base em mais de uma condição. Para isso, usamos os operadores lógicos, que nos ajudam a combinar comparações e criar regras mais complexas. Eles são como palavras que o computador entende para dizer “e”, “ou” e “não”.
+
+                <br><br> O operador && (E) verifica se duas ou mais condições são verdadeiras ao mesmo tempo. Por exemplo, se quisermos saber se um jogador tem vidas maiores que 0 e ainda não pegou todos os pontos, usamos algo como: vidas > 0 && pontosColetados < pontosTotais. O resultado só será verdadeiro se ambas as condições forem verdadeiras.
+                
+                <br><br> Já o operador || (OU) é usado quando basta que uma das condições seja verdadeira. Por exemplo, podemos querer continuar o jogo se o jogador tiver uma vida ou se estiver usando um power-up: vidas > 0 || temPowerUp == true. Se uma das duas condições for verdadeira, o resultado será verdadeiro.
+                
+                <br><br> Por fim, o operador ! (NÃO) serve para inverter um valor lógico. Se algo é verdadeiro, o ! transforma em falso, e vice-versa. Por exemplo, !jogoPausado significa "jogo não está pausado". Esse operador é muito útil quando queremos verificar se uma condição não está acontecendo.
+
+                <br><br> Expressões como se ((!vitoria || tempo == 0) && jogoIniciado == true) são chamadas de expressões compostas, pois combinam mais de uma condição lógica usando operadores como && (E) e || (OU). Quando usamos múltiplos operadores em uma única linha, o computador avalia as partes da expressão com base em uma ordem de precedência, o que pode gerar confusão se não usarmos parênteses.
+
+                <br><br> Entender os operadores lógicos é essencial para criar regras, tomar decisões e controlar o fluxo do programa. Com eles, conseguimos escrever condições mais poderosas e flexíveis, deixando nosso código mais inteligente. Sempre que precisar combinar várias situações, lembre-se de que os operadores lógicos estão ali para ajudar o computador a tomar decisões corretas.
+            </p>
+            <div class="next_back">
+                <a href="../../fase7/fase7.html"><button class="button-19" role="button">Voltar para fase 7</button></a>
+                <button class="button-19 next" role="button">Próximo</button>
+            </div>
+        </div>
+        <div class="questao">
+            <div class="borda"></div>
+            <h1 class="titulo">Questão de fixação</h1>
+            <p class="texto">
+                Qual das alternativas apresenta a utilização correta de operadores lógicos?
+            </p>
+            <div class="opcoes">
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+            </div>
+            <div class="botoes">
+                <button class="button-19 return" role="button">Voltar pro conteúdo</button>
+                <div class="pontuação">
+                    <p class="pontosTXT">Pontuação:</p>
+                    <p class="pontosUsuario"></p>
+                </div> 
+                <a href="../fase8.html"><button class="button-19 next_level" role="button">Ir para fase 8</button></a>
+            </div>
+        </div>
+    </div>
+    <script src="introducao.js"></script>
+    <script src="../../compartilhado/fixação.js"></script>
+</body>
+</html>

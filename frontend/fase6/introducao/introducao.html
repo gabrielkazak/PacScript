@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../compartilhado/conteudo.css">
+    <title>Document</title>
+</head>
+<body data-questao="questao6">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../../musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio>  
+    <div class="container">
+        <div class="conteudo">
+            <div class="borda"></div>
+            <h1 class="titulo">Introdução a Operadores de Atribuição Composta</h1>
+            <p class="texto">
+                Em programação, muitas vezes precisamos atualizar o valor de uma variável com base no seu valor anterior. Isso acontece, por exemplo, quando somamos pontos à pontuação de um personagem ou quando diminuímos o número de vidas após um erro. Para facilitar esse tipo de operação, usamos os operadores de atribuição composta, como +=, -=, *=, e /=. Esses operadores combinam uma operação matemática com a atribuição, tornando o código mais limpo e direto.
+            <br><br>
+                Por exemplo, imagine que você queira somar 10 pontos à variável pontuacao. Em vez de escrever pontuacao = pontuacao + 10, podemos usar a forma simplificada: pontuacao += 10. O mesmo vale para subtrações, multiplicações e divisões: vidas -= 1, multiplicador *= 2, e assim por diante. Isso ajuda a reduzir repetições no código e facilita a leitura, especialmente quando essas operações são realizadas com frequência.
+            <br><br>
+                Os operadores de atribuição composta funcionam apenas com variáveis, pois exigem que o valor possa ser modificado. Por isso, nunca devem ser usados com constantes, já que estas não podem ser alteradas depois de declaradas. Tentar algo como PONTOS_COLETA += 5 geraria um erro, pois estamos tentando modificar uma constante, o que viola sua função.
+            <br><br>
+                Dominar esses operadores é um passo importante para escrever códigos mais objetivos e organizados. Ao utilizá-los corretamente, você evita redundâncias e torna a lógica do seu programa mais clara. Além disso, essa prática ajuda a manter o foco no que realmente importa: a lógica por trás da ação que você está programando.
+            </p>
+            <div class="next_back">
+                <a href="../../fase5/fase5.html"><button class="button-19" role="button">Voltar para fase 5</button></a>
+                <button class="button-19 next" role="button">Próximo</button>
+            </div>
+        </div>
+        <div class="questao">
+            <div class="borda"></div>
+            <h1 class="titulo">Questão de fixação</h1>
+            <p class="texto">
+                Qual das opções abaixo mostra corretamente o uso de operadores de atribuição composta?
+            </p>
+            <div class="opcoes">
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+                <div class="resposta"></div>
+            </div>
+            <div class="botoes">
+                <button class="button-19 return" role="button">Voltar pro conteúdo</button>
+                <div class="pontuação">
+                    <p class="pontosTXT">Pontuação:</p>
+                    <p class="pontosUsuario"></p>
+                </div> 
+                <a href="../fase6.html"><button class="button-19 next_level" role="button">Ir para fase 6</button></a>
+            </div>
+        </div>
+    </div>
+    <script src="introducao.js"></script>
+    <script src="../../compartilhado/fixação.js"></script>
+</body>
+</html>

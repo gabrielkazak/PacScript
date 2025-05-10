@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../compartilhado/fases.css">
+    <link rel="stylesheet" href="fase5.css">
+    <title>Pac-Script</title>
+</head>
+<body data-fase="fase5">
+    <audio id="musicaFundo" autoplay loop>
+        <source src="../../musica2.mp3" type="audio/mpeg">
+        Seu navegador não suporta o formato de áudio.
+    </audio> 
+    <div class="overlay"></div>
+    <div class="dica">
+        <p class="textoDica"></p>
+        <button class="fechar" role="button">Fechar dica</button>
+    </div>
+    <div class="setorPrompt">
+        <div class="cabecalho">
+            <a href="../menu/menu.html"><h2 class="titulo">PAC-SCRIPT</h2></a>
+            <p class="fase">FASE 5</p>
+        </div>
+        <p class="instrucao">
+            Nesta fase, você aprenderá sobre a importância das constantes em um código. Enquanto variáveis armazenam valores que mudam ao longo do tempo, constantes guardam valores fixos que nunca devem ser alterados durante a execução. Isso é essencial para manter a lógica do programa segura e evitar bugs difíceis de encontrar.
+            <br><br>
+            Abaixo está um trecho de pseudocódigo com um erro: uma variável foi usada para guardar o valor dos pontos ganhos por coleta, mas ela está sendo sobrescrita acidentalmente em outro ponto do código. Sua missão é identificar esse valor que nunca deveria mudar, mudando sua chamada, de uma variável para uma constante, e excluindo as linhas de código que estão causando problemas.
+            <br><br>
+            Parâmetros de ajuda: <br>É uma boa prática escrever constantes em letra maiúscula, como PONTOS.<br>Lembre-se de colocar o tipo de dado da variável ao seu lado, como pontosTotais = 0 (int)
+        </p>
+        <textarea spellcheck="false" class="input" name="input" id="codigoUsuario">
+valorPonto = 1 (int)
+pontosTotais = 0 (int)
+
+// Pac-Man coleta um ponto
+pontosTotais = pontosTotais + valorPonto
+
+valorPonto = 99 (int)
+
+// Nova coleta de ponto
+pontosTotais = pontosTotais + valorPonto
+            
+        </textarea>
+        <div class="botoes">
+            <button class="button-18" id="botaoDica" role="button">Dica 0/3</button>  
+            <button class="button-18" id="botao" role="button">Testar</button>
+            <a href="../fase6/introducao/introducao.html" class="button-18 avancar" id="avancar" role="button">Avançar</a>
+        </div>
+        <div class="botoesInferior">
+            <div class="pontuação">
+                <p class="pontosTXT">Pontuação:</p>
+                <p class="pontosUsuario"></p>
+            </div> 
+        </div>
+        <a href="./introducao/introducao.html"><button class="voltar" role="button">Ver Conteúdo</button></a>
+    </div>
+    <div class="jogo__base">
+        <div class="background"></div>
+        <canvas id="tela" width="570" height="630"></canvas>
+        <p class="placar"></p>
+        <img src="../imagens/gameOver.png" alt="" class="gameOver">
+    </div>
+    
+    <script type="module" src="fase5.js"></script>
+    <script src="../compartilhado/persistencia.js"></script>
+
+</body>
+</html>

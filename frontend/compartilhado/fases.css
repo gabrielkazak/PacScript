@@ -1,0 +1,333 @@
+:root {
+  --amarelo: #FAD210;
+  --fonte-principal:'Tourney';
+}
+
+body{
+    background: rgb(184,14,255);
+    background: linear-gradient(0deg, rgba(184,14,255,1) 0%, rgba(90,16,128,1) 32%, rgba(12,18,23,1) 80%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 50px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.jogo__base {
+    position: relative;
+    width: 570px;
+    height: 630px;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 32px;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+.placar{
+    color: white;
+    margin: 0;
+    z-index: 1;
+    position: absolute;
+    top: 630px;
+    font-family: var(--fonte-principal);
+    left: 275px;
+}
+
+.setorPrompt{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.076);
+    width: 48%;
+    padding: 15px;
+    border-radius: 25px;
+    align-items: center;
+}
+
+.cabecalho{
+    width: 70%;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    margin-right: 25px;
+    align-items: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.titulo, .fase{
+    font-family: var(--fonte-principal);
+    font-size: 32px;
+    color: #FAD210;
+    font-weight: 500;
+    margin: 10px;
+}
+
+.input{
+    background-color: rgb(21, 21, 21);
+    font-family: var(--fonte-principal);
+    padding: 25px 0 0 25px;
+    font-size: 18px;
+    outline: none;
+    height: 220px;
+    width: 90%;
+    color: white;
+    resize: none;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+/* Largura e cor de fundo da barra */
+.input::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Fundo da barra (trilho) */
+.input::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Parte que se move (polegar) */
+.input::-webkit-scrollbar-thumb {
+  background: var(--amarelo);
+  border-radius: 10px;
+}
+
+/* Ao passar o mouse */
+.input::-webkit-scrollbar-thumb:hover {
+  background: var(--amarelo);
+  cursor: default;
+}
+
+.instrucao{
+    height: 200px;
+    overflow-y:scroll;
+    width: 90%;
+    font-family: var(--fonte-principal);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: white;
+    text-align: justify;
+    padding: 0 10px;
+    margin: 0 0 50px 0;
+}
+
+.instrucao::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Fundo da barra (trilho) */
+.instrucao::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 10px;
+}
+
+/* Parte que se move (polegar) */
+.instrucao::-webkit-scrollbar-thumb {
+  background: var(--amarelo);
+  border-radius: 10px;
+}
+
+/* Ao passar o mouse */
+.instrucao::-webkit-scrollbar-thumb:hover {
+  background: var(--amarelo);
+  cursor: default;
+}
+
+.button-18 {
+    align-items: center;
+    background-color: #7805A2;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--fonte-principal);    
+    font-size: 16px;
+    font-weight: bold;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+  }
+  
+  .button-18:hover,
+  .button-18:focus { 
+    background-color: #B80EFF;
+    color: #ffffff;
+  }
+  
+  .button-18:active {
+    background: #B80EFF;
+    color: rgb(255, 255, 255, .7);
+  }
+  
+  .button-18:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+  }
+
+  .avancar{
+    background-color: var(--amarelo);
+    border: 3px solid var(--amarelo);
+    color: black;
+    transition: 0.5s ease;
+  }
+
+  #avancar{
+    padding-top: 8px;
+  }
+
+  .avancar:hover{
+    background-color: transparent;
+    color: var(--amarelo);
+  }
+
+  .botoes{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .voltar{
+    font-family: var(--fonte-principal);
+    color: var(--amarelo);
+    background-color: transparent;
+    font-size: 24px;
+    border: 3px solid var(--amarelo);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.5s ease;
+  }
+
+  .voltar:hover{
+    border: 3px solid #ffffff;
+  }
+
+  .pontuação{
+    display: flex;
+    align-items: center;
+  }
+
+  .pontosTXT{
+    font-family: var(--fonte-principal);
+    font-size: 32px;
+    color: white;
+    margin-right: 12px;
+  }
+  
+  .pontosUsuario{
+    font-family: var(--fonte-principal);
+    font-size: 32px;
+    color: var(--amarelo);
+  }
+
+  .botoesInferior{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 10;
+    width: 500px;
+    transition: 1s unset;
+}
+
+.vidas{
+  display: none;
+  color: yellow;
+  margin: 0;
+  z-index: 1;
+  position: absolute;
+  top: 630px;
+  font-family: var(--fonte-principal);
+  left: 265px;
+}
+
+.overlay{
+  display: none;
+  position: absolute;
+  width:100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.549);
+  z-index: 9;
+}
+
+.dica{
+  position: absolute;
+  width: 35%;
+  height: 50%;
+  top: 25%;
+  left: 32.5%;
+  background-color: black;
+  z-index: 10;
+  border: 10px solid var(--amarelo);
+  border-radius: 32px;
+  padding: 1rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.textoDica{
+  font-family: var(--fonte-principal);
+  font-size: 32px;
+  color: var(--amarelo);
+}
+
+.fechar{
+  font-family: var(--fonte-principal);
+  color: var(--amarelo);
+  background-color: transparent;
+  font-size: 24px;
+  border: 3px solid var(--amarelo);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.5s ease;
+}

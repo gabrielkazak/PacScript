@@ -1,0 +1,275 @@
+body{
+    background: rgb(184,14,255);
+    background: linear-gradient(0deg, rgba(184,14,255,1) 0%, rgba(90,16,128,1) 32%, rgba(12,18,23,1) 80%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+#avancar{
+    display: none;
+    padding-top: 8px;
+}
+
+
+.setorPrompt{
+    display: flex;
+    flex-direction: column;
+    width: 40;
+    background-color: rgba(255, 255, 255, 0.076);
+    padding: 15px;
+    border-radius: 25px;
+    align-items: center;
+}
+
+.cabecalho{
+    width: 70%;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    margin-right: 25px;
+    align-items: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+}
+
+.titulo, .fase{
+    font-family: "Tourney";
+    font-size: 32px;
+    color: #FAD210;
+    font-weight: 500;
+}
+
+.instrucao{
+    width: 570px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+    text-align: justify;
+    margin: 0 0 15px 0;
+}
+
+.button-18 {
+  align-items: center;
+  background-color: #7805A2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Tourney";    
+  font-size: 16px;
+  font-weight: bold;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+  
+  .button-18:hover,
+  .button-18:focus { 
+    background-color: #B80EFF;
+    color: #ffffff;
+  }
+  
+  .button-18:active {
+    background: #B80EFF;
+    color: rgb(255, 255, 255, .7);
+  }
+  
+  .button-18:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+  }
+
+  .botoes{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .group{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 50px;
+  }
+
+  .selector{
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Tourney";
+    font-size: 20px;
+    color: #FAD210;
+  }
+
+  .options{
+    width: 72px;
+    height: 60px;
+    cursor: pointer;
+    border:none;
+    border-radius: 6px;
+    font-family: "Tourney";
+    font-size: 28px;
+    color: #2BEDFF;
+    background-color: black;
+    text-align: center;
+    transition: 1s ease;
+  }
+
+  .lockado{
+    background-color: rgb(23, 23, 23);
+    color: aqua;
+  }
+
+  .voltar{
+    font-family: "Tourney";
+    color: #FAD210;
+    background-color: transparent;
+    font-size: 24px;
+    border: 3px solid #FAD210;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.5s ease;
+  }
+
+  .voltar:hover{
+    border: 3px solid #ffffff;
+  }
+
+  .avancar{
+    background-color: #FAD210;
+    border: 3px solid #FAD210;
+    color: black;
+    transition: 0.5s ease;
+  }
+
+  .avancar:hover{
+    background-color: transparent;
+    color: #FAD210;
+  }
+
+  .pontuação{
+    display: flex;
+    align-items: center;
+  }
+
+  .pontosTXT{
+    font-family: "Tourney";
+    font-size: 32px;
+    color: white;
+    margin-right: 12px;
+  }
+  
+  .pontosUsuario{
+    font-family: "Tourney";
+    font-size: 32px;
+    color: #FAD210;
+  }
+
+  .botoesInferior{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .frase {
+    display: block;
+    font-family: "Tourney";
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .overlay{
+    display: none;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.549);
+    z-index: 9;
+  }
+
+  .dica{
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    top: 25%;
+    left: 32.5%;
+    background-color: black;
+    z-index: 10;
+    border: 10px solid #FAD210;
+    border-radius: 32px;
+    padding: 1rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .textoDica{
+    font-family: "Tourney";
+    font-size: 32px;
+    color: #FAD210;
+  }
+
+  .fechar{
+    font-family: "Tourney";
+    color: #FAD210;
+    background-color: transparent;
+    font-size: 24px;
+    border: 3px solid #FAD210;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.5s ease;
+  }
+
+  .center{
+    margin-left: 3rem;
+  }

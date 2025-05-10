@@ -403,7 +403,6 @@ function teclaAleatoria() {
     return opcoes[Math.floor(Math.random() * opcoes.length)];
 }
 
-// Retorna a direção oposta
 function oposta(direcao) {
     let opostos = {
         "ArrowUp": "ArrowDown",
@@ -486,7 +485,7 @@ function placarContador() {
 
 
 
-class Fantasma { //Construtor dos fantasmas
+class Fantasma {
     constructor(x, y, raio, velocidade, direcaoFantasma, coeficiente, imagem) {
         this.x = x;
         this.y = y;
@@ -500,8 +499,6 @@ class Fantasma { //Construtor dos fantasmas
 
 let fantasma1;
 let fantasma2;
-//let fantasma3;
-//let fantasma4;
 
 function carregarImagem(src) {
     return new Promise((resolve, reject) => {
@@ -517,29 +514,21 @@ async function iniciarFantasmas() {
 
         await carregarImagens()
 
-        // Agora as imagens estão prontas, então cria os fantasmas
         fantasma1 = new Fantasma(285, 285, 14.9, 1.5, 2, 1, vermelho);
         fantasma2 = new Fantasma(285, 285, 14.9, 1.5, 0, 4, rosa);
-        //fantasma3 = new Fantasma(285, 285, 14.9, 1.5, 0, 0.5, azul);
-        //fantasma4 = new Fantasma(285, 285, 14.9, 1.5, 0, -1, laranja);
 
-
-        // Agora pode desenhar
         desenhaFantasmas();
     } catch (erro) {
         console.error("Erro ao carregar imagens dos fantasmas:", erro);
     }
 }
 
-iniciarFantasmas(); // Só chama quando todas as imagens estiverem prontas
+iniciarFantasmas();
 
 
 function desenhaFantasmas() {
-     // em conjunto com a proxima função, vai desenhar os fantasmas, depois de ter definido seu estilo visual
     defineFantasma(fantasma1);
     defineFantasma(fantasma2);
-    //defineFantasma(fantasma3);
-    //defineFantasma(fantasma4);
 }
 
 function defineFantasma(fantasma) {
@@ -552,16 +541,15 @@ function defineFantasma(fantasma) {
     }
 }
 
-function limpaFantasma(fantasma) { //limpa o rastro do fantasma com quadrados pretos, e depois verifica se aquele quadrado era um ponto, se for um ponto, redesenha ele
+function limpaFantasma(fantasma) {
     telaConteudo.fillStyle = "black";
     telaConteudo.fillRect(fantasma.x - fantasma.raio, fantasma.y - fantasma.raio, fantasma.raio * 2, fantasma.raio * 2);
 
-    // Verifica se o fantasma está sobre algum ponto e desenha o ponto
     for (let i = 0; i < pontos.length; i++) {
         let ponto = pontos[i];
         
         if (Math.abs(fantasma.x - ponto.x) < 3 && Math.abs(fantasma.y - ponto.y) < 3 && !ponto.coletado) {
-            definePonto(ponto); // Desenha o ponto, mesmo que o fantasma esteja em cima
+            definePonto(ponto);
         }
     }
 }
@@ -613,17 +601,11 @@ function colidePersonagem(novoX, novoY, fantasma) {
                 fantasma2.x = 285;
                 fantasma2.y = 285;
                 
-                //fantasma3.x = 285;
-                //fantasma3.y = 285;
-
-                //fantasma4.x = 285;
-                //fantasma4.y = 285;
         }
     }
 }
 
 function colideComFantasma(pacmanX, pacmanY, fantasma) {
-    // Função auxiliar que verifica a colisão do Pac-Man com o fantasma
     let distanciaX = pacmanX - fantasma.x;
     let distanciaY = pacmanY - fantasma.y;
     let distancia = Math.sqrt(distanciaX * distanciaX + distanciaY * distanciaY);
@@ -639,32 +621,21 @@ function atualizaFantasmas() {
         monitorarMovimentoFantasma(fantasma2,pacman)
         comandaFantasma(fantasma2);
 
-        //monitorarMovimentoFantasma(fantasma3,pacman)
-        //comandaFantasma(fantasma3);
-
-        //monitorarMovimentoFantasma(fantasma4,pacman)
-        //comandaFantasma(fantasma4);
-
     } else if (pacman.poderAtivo) {
-        // Se o poder estiver ativo, chama a função "assustados" para todos os fantasmas
         assustados(fantasma1,pacman);
         assustados(fantasma2,pacman);
-        //assustados(fantasma3,pacman);
-        //assustados(fantasma4,pacman);
 
     } else{
         moveFantasma(fantasma1, pacman);
         moveFantasma(fantasma2,pacman);
-        //moveFantasma(fantasma3,pacman);
-        //moveFantasma(fantasma4,pacman);
     }
    
 }
 
-var reposicionando = false; // Flag para verificar se o fantasma está em processo de reposicionamento
+var reposicionando = false;
 
 function moveFantasma(fantasma, pacman) {
-    if (reposicionando) return; // Se o fantasma está reposicionando, não executa movimento normal
+    if (reposicionando) return;
 
     const direcoes = [
         { x: 0, y: -1 }, // cima
@@ -676,7 +647,6 @@ function moveFantasma(fantasma, pacman) {
     let melhorDirecao = null;
     let menorDistancia = Infinity;
 
-    // Escolha da melhor direção (baseada na menor distância do Pac-Man)
     for (const direcao of direcoes) {
         const novoX = fantasma.x + direcao.x;
         const novoY = fantasma.y + direcao.y;
@@ -708,28 +678,25 @@ function monitorarMovimentoFantasma(fantasma) {
 
         if (mudouPouco) {
 
-            reposicionando = true; // Define que o fantasma está sendo reposicionada
+            reposicionando = true;
             setTimeout(() => {
-                reposicionando = false; // Permite que o movimento normal retome
-                monitorarMovimentoFantasma(fantasma); // Reinicia o monitoramento
-            }, 1750); // Pausa de 3 segundos
+                reposicionando = false;
+                monitorarMovimentoFantasma(fantasma);
+            }, 1750);
 
         } else {
-            // Continua monitorando se o fantasma não está parado
             monitorarMovimentoFantasma(fantasma);
         }
-    }, 2000); // Verifica a cada 2 segundos
+    }, 2000);
 }
 
 function comandaFantasma(fantasma) {
     let novoFX = fantasma.x;
     let novoFY = fantasma.y;
 
-    let direcaoInicial = fantasma.direcaoFantasma; // Salva a direção inicial
-    let tentouDirecoes = 0; // Contador para evitar loop infinito caso todas as direções sejam inválidas
+    let tentouDirecoes = 0
 
-    while (tentouDirecoes < 4) { // No máximo, tenta todas as 4 direções
-        // Calcula a nova posição com base na direção atual
+    while (tentouDirecoes < 4) {
 
         let ultimaDirecao = fantasma.direcaoFantasma;
 
@@ -752,17 +719,14 @@ function comandaFantasma(fantasma) {
                 break;
         }
 
-        // Verifica se a posição é válida (sem colidir com paredes)
         if (fantasmaPodeMover(novoFX, novoFY, fantasma)) {
             limpaFantasma(fantasma);
             fantasma.x = novoFX;
             fantasma.y = novoFY;
             colidePersonagem(pacman.x, pacman.y, fantasma);
-            break; // Sai do loop ao encontrar uma direção válida
+            break;
         } else {
-            // Incrementa o contador de tentativas
             tentouDirecoes++;
-
             // Escolhe nova direção evitando mesma categoria (horizontal/vertical)
             if (fantasma.direcaoFantasma % 2 === 0) {
                 // Última direção foi vertical (0 ou 2), escolhe horizontal (1 ou 3)
@@ -815,19 +779,6 @@ function fantasmaPodeMover(novoFX, novoFY, fantasma) {
     }
 }
 
-/*
-1 - vermelho
-2 - rosa
-3 - azul
-4 - laranja
-
-Direções:
-0 - cima
-1 - direita
-2 - baixo
-3 - esquerda
- */
-
 
 let assustadoEstado;
 
@@ -837,8 +788,6 @@ async function carregarImagens() {
     try {
         vermelho = await carregarImagem("../imagens/fantasmaVermelho.png");
         rosa = await carregarImagem("../imagens/fantasmaRosa.png");
-        //azul = await carregarImagem("../imagens/fantasmaAzul.png");
-        //laranja = await carregarImagem("../imagens/fantasmaLaranja.png");
     } catch (error) {
         console.error("Erro ao carregar alguma imagem dos fantasmas:", error);
     }
@@ -888,8 +837,6 @@ function assustados(fantasma) {
         // Altera a cor dos fantasmas para o estado assustado
         fantasma1.imagem = assustadoEstado;
         fantasma2.imagem = assustadoEstado;
-        //fantasma3.imagem = assustadoEstado;
-        //fantasma4.imagem = assustadoEstado;
     }
 }
 
@@ -903,8 +850,6 @@ function fantasmaMorto(fantasma){
         fantasma.velocidade = 2;
         fantasma1.cor = "red";
         fantasma2.cor = "pink";
-        //fantasma3.cor = "blue";
-        //fantasma4.cor = "orange";
     }, 3000);
 }
 
@@ -926,8 +871,6 @@ async function iniciarJogo() {
     await carregarEstadoAssustado();
     monitorarMovimentoFantasma(fantasma1);
     monitorarMovimentoFantasma(fantasma2);
-    //monitorarMovimentoFantasma(fantasma3);
-    //monitorarMovimentoFantasma(fantasma4);
     let resetaTudo = setInterval(() => {
         atualizaTela();
     }, 1000 / 75);
@@ -938,10 +881,12 @@ iniciarJogo();
 var pontosUsuario = document.querySelector('.pontosUsuario')
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    var pontosLocal = localStorage.getItem('pontuação')
-    pontosUsuario.innerHTML = pontosLocal
+    var pontosLocal = localStorage.getItem('pontuação');
+    pontosUsuario.innerHTML = pontosLocal;
+
     const faseAtual = document.body.dataset.fase;
     localStorage.setItem(faseAtual, '');
+
     if (localStorage.getItem('veioDoMenu') === 'true') {
         localStorage.removeItem('veioDoMenu');
         document.getElementById('avancar').textContent = 'Voltar para o Menu';
@@ -993,8 +938,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         volume = volume * 0.01
         
-        // Define o volume aqui (por exemplo, 50% do volume máximo)
-        musica.volume = volume; // Valor entre 0.0 (mudo) e 1.0 (volume máximo)
+        musica.volume = volume;
 
         musica.play(); 
     }

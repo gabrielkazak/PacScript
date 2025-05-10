@@ -5,10 +5,6 @@ const unidade = 30;
 let pontuacao = -1;
 let ultimaTecla;
 let proximaTecla;
-let qtdpowerUp = 0;
-let duracaoPowerUP = 0;
-let timerPowerUp = null;  // Armazena o timeout atual
-let intervaloPiscando = null;
 
 let contadorGPT;
 let flagGPTVidas = false;
@@ -130,19 +126,10 @@ let pacman = {
     x: 285,
     y: 345,
     raio: 14.9,
-    velocidade: 2,
+    velocidade: 1.5,
     cor:"yellow",
     poderAtivo: false
 };
-
-
-
-/* Power-ups nas linhas e colunas:
-p1 = linha: 3, coluna: 1
-p2 = linha: 3, coluna: 17
-p3 = linha: 15, coluna: 1
-p4 = linha: 15, coluna: 17
-*/
 
 class PowerUp {
     constructor(x, y, raio, cor) {
@@ -154,129 +141,9 @@ class PowerUp {
     }
 }
 
-// Lista de power-ups
-let powerUps = [];
-
-// Inicializa os power-ups
-function inicializaPowerUps() {
-    if (powerUps.length === 0){
-        powerUps.push(new PowerUp(45, 465, 8, "lightpink")); // p1
-        powerUps.push(new PowerUp(45, 105, 8, "lightpink")); // p2
-        powerUps.push(new PowerUp(525, 105, 8, "lightpink")); // p3
-        powerUps.push(new PowerUp(525, 465, 8, "lightpink")); // p4
-    }
-}
-//inicializaPowerUps();
-
-// Desenha os power-ups
-function desenhaPowerUps() {
-    powerUps.forEach(powerUp => {
-        if (!powerUp.coletado) { // só desenha se ainda não foi coletado
-            telaConteudo.fillStyle = powerUp.cor;
-            telaConteudo.beginPath();
-            telaConteudo.arc(powerUp.x, powerUp.y, powerUp.raio, 0, 2 * Math.PI);
-            telaConteudo.fill();
-        }
-    });
-}
-
-// Verifica se o Pac-Man colidiu com um power-up
-function verificaColetaPowerUps(pacman) {
-    powerUps.forEach(powerUp => {
-        if (!powerUp.coletado) {
-            const distancia = Math.sqrt(
-                Math.pow(pacman.x - powerUp.x, 2) +
-                Math.pow(pacman.y - powerUp.y, 2)
-            );
-
-            if (distancia <= powerUp.raio + pacman.raio) { // ajusta 'pacmanRaio' com o valor do raio do Pac-Man
-                powerUp.coletado = true;
-                duracaoPowerUP+=10000; // marca como coletado
-                efeitoPowerUp(pacman);
-                limpaMapa();
-                criaBorda();
-                qtdpowerUp++;
-            }
-        }
-    });
-}
-
-function efeitoPowerUp(pacman) {
-    pacman.poderAtivo = true;
-
-    // Cancela o timeout anterior se existir
-    if (timerPowerUp) {
-        clearTimeout(timerPowerUp);
-    }
-    
-    // Inicia ou reinicia o intervalo de piscada
-    if (!intervaloPiscando) {
-        intervaloPiscando = setInterval(function() {
-            pacman.cor = (pacman.cor === "yellow") ? "white" : "yellow";
-        }, 500);
-    }
-
-    // Agendar novo tempo de desativação
-    timerPowerUp = setTimeout(function() {
-        clearInterval(intervaloPiscando);
-        intervaloPiscando = null;
-        pacman.cor = "yellow";
-        pacman.poderAtivo = false;
-
-        // Reseta fantasmas para as cores normais
-        fantasma1.imagem = vermelho
-        fantasma2.imagem = rosa
-        //fantasma3.imagem = fantasmaAzul;
-        //fantasma4.imagem = fantasmaLaranja;
-        
-        duracaoPowerUP = 0;  // Reseta a duração acumulada
-    }, duracaoPowerUP);
-}
-
-
-function animacaoPowerUP() {
-    let tempoDecorrido = 0;
-    const duracaoPiscada = 750;
-
-    function alternarCor() {
-        // Alterna a cor a cada 2 segundos
-        if (Math.floor(tempoDecorrido / duracaoPiscada) % 2 === 0) {
-            // Cor preta
-            powerUps.forEach(powerUp => {
-                if (!powerUp.coletado) {
-                    telaConteudo.fillStyle = "black";
-                    telaConteudo.beginPath();
-                    telaConteudo.arc(powerUp.x, powerUp.y, powerUp.raio, 0, 2 * Math.PI);
-                    telaConteudo.fill();
-                }
-            })
-        } else {
-            // Cor rosa
-            powerUps.forEach(powerUp => {
-                if (!powerUp.coletado) {
-                    telaConteudo.fillStyle = "pink";
-                    telaConteudo.beginPath();
-                    telaConteudo.arc(powerUp.x, powerUp.y, powerUp.raio, 0, 2 * Math.PI);
-                    telaConteudo.fill();
-                }
-            })
-        }
-        tempoDecorrido += duracaoPiscada;
-        setTimeout(alternarCor, duracaoPiscada);
-    }
-
-    // Chama a primeira execução
-    alternarCor();
-}
-
-// Inicializa a animação
-//animacaoPowerUP();
-
 function criaMapa() {
     criaBorda();
     criaPontos(); 
-    //desenhaPowerUps(); 
-    //inicializaPowerUps(); 
 }
 
 criaMapa()
@@ -306,11 +173,11 @@ function limpaMapa(){
 
 
 
-let anguloBoca = 0.1; // Ângulo inicial de abertura
+let anguloBoca = 0.1;
 let abrindo = true;
 let pacmanDirecao;
 
-function limpaPacman() {    //limpa tudo que esta na posição anterior do pacman
+function limpaPacman() {
     telaConteudo.fillStyle = "black";
     telaConteudo.fillRect(pacman.x - pacman.raio, pacman.y - pacman.raio, pacman.raio * 2, pacman.raio * 2);
 }
@@ -372,10 +239,9 @@ function criaPacman() {
 function animaPacman(){
     atualizaDirecao();
     criaPacman();
-    requestAnimationFrame(animaPacman); // Chama a animação no próximo frame
+    requestAnimationFrame(animaPacman);
 }
 
-// Iniciar a animação
 animaPacman();
 
 let direcoes = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
@@ -402,26 +268,20 @@ function movePacman() {
         teleporte();
         placarContador();
         ultimaTecla = proximaTecla;
-        verificaColetaPowerUps(pacman); 
         if(!PowerUp.coletado){
             if (fantasma1) colidePersonagem(pacman.x, pacman.y, fantasma1);
             if (fantasma2) colidePersonagem(pacman.x, pacman.y, fantasma2);
-            //if (fantasma3) colidePersonagem(pacman.x, pacman.y, fantasma3);
-            //if (fantasma4) colidePersonagem(pacman.x, pacman.y, fantasma4);
         }
-        // Decide se pode trocar de direção agora
-        if (Math.random() < 0.1) { // Pequena chance de mudar a cada movimento
+        if (Math.random() < 0.1) {
             proximaTecla = teclaAleatoria();
         }
     } else {
-        // Se não pode seguir, obrigatoriamente escolhe uma nova direção válida
         proximaTecla = teclaAleatoria();
     }
 
     criaPacman();
 }
 
-// Gera uma tecla aleatória diferente da penúltima
 function teclaAleatoria() {
     let opcoes = direcoes.filter(d => d !== oposta(ultimaTecla)); // Evita vai-e-vem
     return opcoes[Math.floor(Math.random() * opcoes.length)];
@@ -527,8 +387,6 @@ class Fantasma { //Construtor dos fantasmas
 
 let fantasma1;
 let fantasma2;
-//let fantasma3;
-//let fantasma4;
 
 function carregarImagem(src) {
     return new Promise((resolve, reject) => {
@@ -544,29 +402,21 @@ async function iniciarFantasmas() {
 
         await carregarImagens()
 
-        // Agora as imagens estão prontas, então cria os fantasmas
         fantasma1 = new Fantasma(285, 285, 14.9, 1, 2, 1, vermelho);
         fantasma2 = new Fantasma(285, 285, 14.9, 1, 0, 4, rosa);
-        //fantasma3 = new Fantasma(285, 285, 14.9, 1.5, 0, 0.5, azul);
-        //fantasma4 = new Fantasma(285, 285, 14.9, 1.5, 0, -1, laranja);
 
-
-        // Agora pode desenhar
         desenhaFantasmas();
     } catch (erro) {
         console.error("Erro ao carregar imagens dos fantasmas:", erro);
     }
 }
 
-iniciarFantasmas(); // Só chama quando todas as imagens estiverem prontas
+iniciarFantasmas();
 
 
 function desenhaFantasmas() {
-     // em conjunto com a proxima função, vai desenhar os fantasmas, depois de ter definido seu estilo visual
     defineFantasma(fantasma1);
     defineFantasma(fantasma2);
-    //defineFantasma(fantasma3);
-    //defineFantasma(fantasma4);
 }
 
 function defineFantasma(fantasma) {
@@ -579,11 +429,10 @@ function defineFantasma(fantasma) {
     }
 }
 
-function limpaFantasma(fantasma) { //limpa o rastro do fantasma com quadrados pretos, e depois verifica se aquele quadrado era um ponto, se for um ponto, redesenha ele
+function limpaFantasma(fantasma) { 
     telaConteudo.fillStyle = "black";
     telaConteudo.fillRect(fantasma.x - fantasma.raio, fantasma.y - fantasma.raio, fantasma.raio * 2, fantasma.raio * 2);
 
-    // Verifica se o fantasma está sobre algum ponto e desenha o ponto
     for (let i = 0; i < pontos.length; i++) {
         let ponto = pontos[i];
         
@@ -651,7 +500,6 @@ function colidePersonagem(novoX, novoY, fantasma) {
                 mapa[8][9] = 0;
                 limpaMapa();
                 criaBorda();
-                desenhaPowerUps();
                 diminuiVidas()
 
                 pacman.x = 285;
@@ -664,12 +512,6 @@ function colidePersonagem(novoX, novoY, fantasma) {
                 
                 fantasma2.x = 285;
                 fantasma2.y = 285;
-                
-                //fantasma3.x = 285;
-                //fantasma3.y = 285;
-
-                //fantasma4.x = 285;
-                //fantasma4.y = 285;
         }
     }
 }
@@ -691,24 +533,13 @@ function atualizaFantasmas() {
         monitorarMovimentoFantasma(fantasma2,pacman)
         comandaFantasma(fantasma2);
 
-        //monitorarMovimentoFantasma(fantasma3,pacman)
-        //comandaFantasma(fantasma3);
-
-        //monitorarMovimentoFantasma(fantasma4,pacman)
-        //comandaFantasma(fantasma4);
-
     } else if (pacman.poderAtivo) {
-        // Se o poder estiver ativo, chama a função "assustados" para todos os fantasmas
         assustados(fantasma1,pacman);
         assustados(fantasma2,pacman);
-        //assustados(fantasma3,pacman);
-        //assustados(fantasma4,pacman);
 
     } else{
         moveFantasma(fantasma1, pacman);
         moveFantasma(fantasma2,pacman);
-        //moveFantasma(fantasma3,pacman);
-        //moveFantasma(fantasma4,pacman);
     }
    
 }
@@ -867,30 +698,16 @@ function fantasmaPodeMover(novoFX, novoFY, fantasma) {
     }
 }
 
-/*
-1 - vermelho
-2 - rosa
-3 - azul
-4 - laranja
-
-Direções:
-0 - cima
-1 - direita
-2 - baixo
-3 - esquerda
- */
 
 
 let assustadoEstado;
 
-let vermelho, rosa, azul, laranja;
+let vermelho, rosa;
 
 async function carregarImagens() {
     try {
         vermelho = await carregarImagem("../imagens/fantasmaVermelho.png");
         rosa = await carregarImagem("../imagens/fantasmaRosa.png");
-        //azul = await carregarImagem("../imagens/fantasmaAzul.png");
-        //laranja = await carregarImagem("../imagens/fantasmaLaranja.png");
     } catch (error) {
         console.error("Erro ao carregar alguma imagem dos fantasmas:", error);
     }
@@ -940,8 +757,6 @@ function assustados(fantasma) {
         // Altera a cor dos fantasmas para o estado assustado
         fantasma1.imagem = assustadoEstado;
         fantasma2.imagem = assustadoEstado;
-        //fantasma3.imagem = assustadoEstado;
-        //fantasma4.imagem = assustadoEstado;
     }
 }
 
@@ -955,8 +770,6 @@ function fantasmaMorto(fantasma){
         fantasma.velocidade = 2;
         fantasma1.cor = "red";
         fantasma2.cor = "pink";
-        //fantasma3.cor = "blue";
-        //fantasma4.cor = "orange";
     }, 3000);
 }
 
@@ -978,8 +791,6 @@ async function iniciarJogo() {
     await carregarEstadoAssustado();
     monitorarMovimentoFantasma(fantasma1);
     monitorarMovimentoFantasma(fantasma2);
-    //monitorarMovimentoFantasma(fantasma3);
-    //monitorarMovimentoFantasma(fantasma4);
     let resetaTudo = setInterval(() => {
         atualizaTela();
     }, 1000 / 75);

@@ -17,12 +17,11 @@ document.querySelector('#botao').addEventListener('click', () => {
     }
 
     let tudoCerto = true;
-    let acertouAlguma = false; // NOVO: controla se acertou pelo menos 1
+    let acertouAlguma = false;
 
     for (let i = 0; i < selects.length; i++) {
         if (respostasCorretas[i] === respostasUsuario[i]) {
             if (!selects[i].classList.contains('lockado')) {
-                // Primeira vez acertando esse campo
                 let pontosNumeral = parseInt(pontosUsuario.textContent);
                 pontosNumeral += 10;
                 pontosUsuario.innerHTML = pontosNumeral;
@@ -30,14 +29,13 @@ document.querySelector('#botao').addEventListener('click', () => {
             }
             selects[i].disabled = true;
             selects[i].classList.add('lockado');
-            acertouAlguma = true; // Marcou que acertou pelo menos uma
+            acertouAlguma = true;
         } else {
             tudoCerto = false;
             selects[i].value = '';
         }
     }
 
-    // Se não acertou nenhuma resposta
     if (!acertouAlguma) {
         let pontosNumeral = parseInt(pontosUsuario.textContent);
         pontosNumeral -= 10;
@@ -45,7 +43,6 @@ document.querySelector('#botao').addEventListener('click', () => {
         localStorage.setItem('pontuação', pontosNumeral);
     }
 
-    // Se acertou todas as respostas
     if (tudoCerto) {
         document.getElementById('botao').style.display = 'none';
         document.getElementById('avancar').style.display = 'block';

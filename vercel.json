@@ -1,5 +1,32 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "menu/menu.html" }
+    { "source": "/fase1/", "destination": "/fase1/fase1.html" },
+    { "source": "/fase1/introducao", "destination": "/fase1/introducao/introducao.html"},
+
+    { "source": "/fase2/", "destination": "/fase2/fase2.html" },
+    { "source": "/fase2/introducao", "destination": "/fase2/introducao/introducao.html"},
+
+    { "source": "/fase3/", "destination": "/fase3/fase3.html" },
+    { "source": "/fase3/introducao", "destination": "/fase3/introducao/introducao.html"},
+
+    { "source": "/fase4/", "destination": "/fase4/fase4.html" },
+    { "source": "/fase4/introducao", "destination": "/fase4/introducao/introducao.html"},
+
+    { "source": "/fase5/", "destination": "/fase5/fase5.html" },
+    { "source": "/fase5/introducao", "destination": "/fase5/introducao/introducao.html"},
+
+    { "source": "/fase6/", "destination": "/fase6/fase6.html" },
+    { "source": "/fase6/introducao", "destination": "/fase6/introducao/introducao.html"},
+
+    { "source": "/fase7/", "destination": "/fase7/fase7.html" },
+    { "source": "/fase7/introducao", "destination": "/fase7/introducao/introducao.html"},
+
+    { "source": "/fase8/", "destination": "/fase8/fase8.html" },
+    { "source": "/fase8/introducao", "destination": "/fase8/introducao/introducao.html"},
+
+    { "source": "/fase9/", "destination": "/fase9/fase9.html" },
+    { "source": "/fase10/", "destination": "/fase10/fase10.html" },
+    { "source": "/menu/", "destination": "/menu/menu.html" },
+    { "source": "/", "destination": "/menu/menu.html" }
   ]
 }

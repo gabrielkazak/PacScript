@@ -892,10 +892,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
         document.getElementById('avancar').textContent = 'Voltar para o Menu';
         document.getElementById('avancar').addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = '../menu/menu.html';
+            window.location.href = '/';
         });
     }
-    if(document.referrer.includes('frontend/menu/menu.html')) return
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('origem') === 'menu')return
     const caminhoAtual = window.location.pathname;
     localStorage.setItem('ultimoCaminho', caminhoAtual);
 })

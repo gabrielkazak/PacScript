@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    if(document.referrer.includes('frontend/menu/menu.html')){
-        return
-      }
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('origem') === 'menu')return
       
     const faseAtual = document.body.dataset.fase;
     const botaoAvancar = document.getElementById('avancar');

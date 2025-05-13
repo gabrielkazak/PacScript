@@ -197,16 +197,16 @@ botaoFases.addEventListener('click', () => {
     }
 
     const listaFases = [
-        new Fase('Fase 1', '../fase1/fase1.html', 'Lógica'),
-        new Fase('Fase 2', '../fase2/fase2.html', 'Pseudocódigo'),
-        new Fase('Fase 3', '../fase3/fase3.html', 'Variáveis'),
-        new Fase('Fase 4', '../fase4/fase4.html', 'Tipos de Dados'),
-        new Fase('Fase 5', '../fase5/fase5.html', 'Constantes'),
-        new Fase('Fase 6', '../fase6/fase6.html', 'Atribuição'),
-        new Fase('Fase 7', '../fase7/fase7.html', 'Comparação'),
-        new Fase('Fase 8', '../fase8/fase8.html', 'Lógicos'),
-        new Fase('Fase 9', '../fase9/fase9.html', 'Revisão'),
-        new Fase('Fase 10', '../fase10/fase10.html', 'Jogo Original')
+        new Fase('Fase 1', '../fase1/?origem=menu', 'Lógica'),
+        new Fase('Fase 2', '../fase2/?origem=menu', 'Pseudocódigo'),
+        new Fase('Fase 3', '../fase3/?origem=menu', 'Variáveis'),
+        new Fase('Fase 4', '../fase4/?origem=menu', 'Tipos de Dados'),
+        new Fase('Fase 5', '../fase5/?origem=menu', 'Constantes'),
+        new Fase('Fase 6', '../fase6/?origem=menu', 'Atribuição'),
+        new Fase('Fase 7', '../fase7/?origem=menu', 'Comparação'),
+        new Fase('Fase 8', '../fase8/?origem=menu', 'Lógicos'),
+        new Fase('Fase 9', '../fase9/?origem=menu', 'Revisão'),
+        new Fase('Fase 10', '../fase10/?origem=menu', 'Jogo Original')
     ];
 
     listaFases.forEach((fase, index) => {

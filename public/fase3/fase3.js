@@ -943,7 +943,7 @@ document.getElementById("botao").addEventListener("click", async () => {
             document.getElementById('avancar').textContent = 'Voltar para o Menu';
             document.getElementById('avancar').addEventListener('click', (e) => {
                 e.preventDefault();
-                window.location.href = '../menu/menu.html';
+                window.location.href = '/';
             });
         }
         if(!acertou){
@@ -1019,7 +1019,14 @@ window.addEventListener("DOMContentLoaded", function() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    if(document.referrer.includes('frontend/menu/menu.html')) return
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('origem') === 'menu')return
     const caminhoAtual = window.location.pathname;
     localStorage.setItem('ultimoCaminho', caminhoAtual);
+  });  
+
+document.addEventListener('DOMContentLoaded', () => {
+    if(!localStorage.getItem('fase2')){
+        window.location.href = '/'
+    }
   });  

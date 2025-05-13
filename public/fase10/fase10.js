@@ -1107,7 +1107,8 @@ function redesenhar(fantasma) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    if(document.referrer.includes('frontend/menu/menu.html')) return
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('origem') === 'menu')return
     const caminhoAtual = window.location.pathname;
     localStorage.setItem('ultimoCaminho', caminhoAtual);
   });  
@@ -1138,3 +1139,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       }
   })
+
+document.addEventListener('DOMContentLoaded', () => {
+    if(!localStorage.getItem('fase9')){
+        window.location.href = '/'
+    }
+  });  

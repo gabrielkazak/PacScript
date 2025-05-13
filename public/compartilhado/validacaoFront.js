@@ -1,9 +1,6 @@
 export async function validarCodigo(parametro, codigo) {
 
-    console.log(codigo)
-    console.log(parametro)
-
-    const response = await fetch("http://localhost:3000/validar/codigo", {
+    const response = await fetch(`/api/validar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ parametro, codigo }),
@@ -14,6 +11,6 @@ export async function validarCodigo(parametro, codigo) {
     const resultado = await response.json();
     console.log("Resultado recebido:", resultado);
 
-    return resultado; // retorna tudo que o back enviar
+    return resultado;
 }
 

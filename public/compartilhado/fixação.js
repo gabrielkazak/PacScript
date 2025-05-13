@@ -49,8 +49,7 @@ document.querySelector('.next').addEventListener('click', () => {
 
         volume = volume * 0.01
         
-        // Define o volume aqui (por exemplo, 50% do volume máximo)
-        musica.volume = volume; // Valor entre 0.0 (mudo) e 1.0 (volume máximo)
+        musica.volume = volume;
 
         musica.play(); 
     }

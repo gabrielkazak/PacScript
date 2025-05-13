@@ -551,10 +551,3 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('ultimoCaminho', caminhoAtual);
   });  
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    if(!localStorage.getItem('fase1')){
-        window.location.href = '/'
-    }
-  });  
-

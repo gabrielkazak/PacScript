@@ -34,11 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     let pontuacao = localStorage.getItem('pontuação')
 
-    if(pontuacao == null){
-        return
+    if(pontuacao != null){
+        document.querySelector('.continuar').style.display = 'block'
     }
-    
-    document.querySelector('.continuar').style.display = 'block'
     
     const body = document.body;
 
@@ -46,8 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if(volume){
         const musica = document.getElementById("musicaFundo");
         volume = volume * 0.01
-        musica.volume = volume;
-        musica.play(); 
+        musica.volume = volume; 
     }
     
     let cor = localStorage.getItem('Cor');

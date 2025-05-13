@@ -109,4 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('ultimoCaminho', caminhoAtual);
   });
 
+  document.addEventListener('DOMContentLoaded', () => {
+    if(!localStorage.getItem('fase7')){
+        window.location.href = '/'
+    }
+  });  
 

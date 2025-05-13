@@ -6,6 +6,7 @@ export async function validarCodigo(parametro, codigo) {
         body: JSON.stringify({ parametro, codigo }),
     });
 
+    console.log(response)
     if (!response.ok) throw new Error("Erro ao validar");
 
     const resultado = await response.json();

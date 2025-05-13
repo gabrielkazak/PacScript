@@ -441,61 +441,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-import {validarCodigo} from "../compartilhado/validacaoFront.js";
+    import {validarCodigo} from "../compartilhado/validacaoFront.js";
 
-document.getElementById("botao").addEventListener("click", async () => {
-    document.getElementById('botao').style.display = 'none'
-    const codigo = document.getElementById("codigoUsuario").value;
-    const resultado = await validarCodigo(parametro, codigo);
-
-    const flags = resultado;
-
-
-    const [flag1, flag2, flag3, flag4, flag5, dicaGerada] = flags;
-
-    corDoMapa = flag1;
-    corDoPacman = flag2;
-    flagGPTMapa = flag3;
-    flagGPTPacman = flag4;
-    flagGPTMovimenta = flag5;
-    dicas[contadorDicas] = dicaGerada;
-
-    if(flagGPTMapa && flagGPTMovimenta && flagGPTPacman){
+    document.getElementById("botao").addEventListener("click", async () => {
         document.getElementById('botao').style.display = 'none'
-        document.getElementById('avancar').style.display = 'block'
-        if (localStorage.getItem('veioDoMenu') === 'true') {
-            localStorage.removeItem('veioDoMenu');
-            document.getElementById('avancar').textContent = 'Voltar para o Menu';
-            document.getElementById('avancar').addEventListener('click', (e) => {
-                e.preventDefault();
-                window.location.href = '../menu/menu.html';
-            });
-        }
-        if(!acertou){
+        const codigo = document.getElementById("codigoUsuario").value;
+        const resultado = await validarCodigo(parametro, codigo);
+
+        const flags = resultado;
+
+
+        const [flag1, flag2, flag3, flag4, flag5, dicaGerada] = flags;
+
+        corDoMapa = flag1;
+        corDoPacman = flag2;
+        flagGPTMapa = flag3;
+        flagGPTPacman = flag4;
+        flagGPTMovimenta = flag5;
+        dicas[contadorDicas] = dicaGerada;
+
+        if(flagGPTMapa && flagGPTMovimenta && flagGPTPacman){
+            document.getElementById('botao').style.display = 'none'
+            document.getElementById('avancar').style.display = 'block'
+            if (localStorage.getItem('veioDoMenu') === 'true') {
+                localStorage.removeItem('veioDoMenu');
+                document.getElementById('avancar').textContent = 'Voltar para o Menu';
+                document.getElementById('avancar').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = '../menu/menu.html';
+                });
+            }
+            if(!acertou){
+                let pontosNumeral = parseInt(pontosUsuario.textContent);
+                pontosNumeral += 150;
+                pontosUsuario.innerHTML = pontosNumeral
+                localStorage.setItem('pontuação', pontosNumeral);
+                const faseAtual = document.body.dataset.fase;
+                localStorage.setItem(faseAtual, codigo);
+                acertou = true;
+            } 
+            finalizaRestart();
+            return
+        } else{
             let pontosNumeral = parseInt(pontosUsuario.textContent);
-            pontosNumeral += 150;
+            pontosNumeral -= 10;
             pontosUsuario.innerHTML = pontosNumeral
             localStorage.setItem('pontuação', pontosNumeral);
-            const faseAtual = document.body.dataset.fase;
-            localStorage.setItem(faseAtual, codigo);
-            acertou = true;
-        } 
-        finalizaRestart();
-        return
-    } else{
-        let pontosNumeral = parseInt(pontosUsuario.textContent);
-        pontosNumeral -= 10;
-        pontosUsuario.innerHTML = pontosNumeral
-        localStorage.setItem('pontuação', pontosNumeral);
-        finalizaRestart();
-    }
+            finalizaRestart();
+        }
 
-    
+        
 
-    setTimeout(() => {
-        document.getElementById('botao').style.display = 'block'
-    }, 10000);
-});
+        setTimeout(() => {
+            document.getElementById('botao').style.display = 'block'
+        }, 10000);
+    });
 
 
 document.getElementById("codigoUsuario").addEventListener("keydown", function(e) {

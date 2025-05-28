@@ -1176,3 +1176,30 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = '/'
     }
   });  
+
+let textoMotivador = ["Parabéns por ter chegado até aqui jogador, espero que tenha sido uma jornada divertida e interativa, essa é a útlima fase prática que você vai desenvolver por enquanto! Está na hora de colocar em prática tudo que você aprendeu até agora, como variáveis, constantes, operadores de comparação, atribuição e lógicos, resolvendo os problemas do código abaixo!", "O código fonte do nosso Pac-man está todo bagunçado e gerando vários bugs, é seu trabalho resolver isso linha por linha. Os bugs mais notáveis são, algumas constantes e variáveis estão mal definidos, alguns tipos de dados estão incorretos, e algumas expressões lógicas estão incorretas. Tenha calma e resolva esse problemão pra gente. Boa sorte!!!"]
+
+let contadorTexto = 0;
+let instrucao = document.querySelector('.instrucao')
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    instrucao.textContent = textoMotivador[0]
+})
+
+document.querySelector('.voltarTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 0){
+        return
+    }
+    contadorTexto--;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/2`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})
+
+document.querySelector('.proximoTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 1){
+        return
+    }
+    contadorTexto++;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/2`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})

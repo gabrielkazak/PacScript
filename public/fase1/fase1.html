@@ -24,33 +24,25 @@
             <a href="/"><h2 class="titulo">PAC-SCRIPT</h2></a>
             <p class="fase">FASE 1</p>
         </div>
-        <p class="instrucao">
-            Pra começar, essa primeira fase apresenta um código já pronto, revelando a linha de raciocínio por trás da implementação de um algoritmo. É essencial visualizar como os elementos do jogo se conectam, sem deixar lacunas que possam gerar dúvidas na interpretação da máquina. Aqui, o mapa, o Pac-Man, os fantasmas, os pontos, os poderes e o placar são definidos de forma geral.
-            <br>
-            <br>
-            Nos bastidores, o jogo é guiado por regras definidas no código: condições, decisões, e estruturas de controle que orientam cada ação. Como estamos apenas começando, o pseudocódigo mostrado já é suficiente para avançar. Mas atenção: nas próximas fases, será você quem escreverá essas instruções, e precisará ser o mais claro e específico possível. Por exemplo, ao criar um mapa, não basta dizer “criar mapa” — é preciso especificar número de linhas, colunas, etc. Lembre-se: o computador faz exatamente o que você manda — nem mais, nem menos.
-            <br>
-            <br>
-            Abaixo está a sua pontuação, em geral, você receberá 150 pontos ao concluir um desafio prático e 100 ao concluir uma questão teórica. Porém, ao testar um código errado ou incompleto, perderá 25 pontos, e ao marcar a opção errada em uma questão teórica, perderá 10 pontos.
-        </p>
+        <div class="inst_conjunto">
+            <p class="instrucao">
+            </p>
+            <div class="botoesTexto">
+                <button class="voltarTexto txtbtn">Voltar</button>
+                <button class="proximoTexto txtbtn">Proximo 1/3</button>
+            </div>
+        </div>
         <textarea spellcheck="false" class="input" name="input" id="codigoUsuario">
-            // Inicialização
-- Criar o mapa, pacman, fantasmas, pontos, poderes e placar;
+            // Criar Fantasmas
+Iniciar criação dos Fantasmas
+Fantasma 1 tem a cor rosa
+Fantasma 2 tem a cor vermelha
+Eles podem se movimentar nas 4 direções do plano 2D
+Finalizar Criação
             
-            // Regras de movimentação
-- O pacman pode se mover para cima, baixo, esquerda e direita;
-            
-            // Regras de coleta
-- O pacman coleta pontos (cada ponto vale 1);
-- O pacman coleta poderes especiais;
-            
-            // Regras de colisão
-- Se o pacman encostar em um fantasma, ele volta ao início;
-- Se o pacman estiver com poder ativo e encostar em um fantasma, o fantasma volta pro início;
-            
-            // Pontuação
-- Cada ponto vale 1;
-- Derrotar um fantasma com poder ativo vale 10 pontos;
+            // Regras de Perseguição dos Fantasmas
+Os Fantasmas perseguem a posição atual do Pac-Man
+Seu objetivo é colidir com ele
             
         </textarea>
         <div class="botoes">

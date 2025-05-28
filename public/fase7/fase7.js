@@ -1003,3 +1003,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });  
   
+let textoMotivador = ["Nesta fase, você aprenderá como usar operadores de comparação para tomar decisões dentro do seu código. Esses operadores são fundamentais para verificar se determinadas condições foram atendidas antes de executar uma ação, como iniciar uma fase ou liberar uma funcionalidade.", "Entre os operadores mais utilizados estão: == (igual a), != (diferente de), >= (maior ou igual a), <= (menor ou igual a), > (maior que) e < (menor que).", "Sua missão é verificar se os parâmetros da fase estão corretamente configurados antes de começar o jogo. Para isso, você deverá utilizar esses operadores para comparar valores, são eles os 4 parâmetros a seguir:", "pontos criados no mapa, quantidade de vidas do pacman que deve ser maior que 0, quantidade de fantasmas que deve ser > que a quantidade de pacman no mapa, a posição inicial do pacman deve ser diferente da posição inicial dos fantasmas.", "Essas comparações ajudam a manter o controle lógico do seu jogo e garantem que ele funcione como esperado desde o início da fase. Lembre-se: operadores de comparação não alteram valores, eles apenas verificam condições e retornam verdadeiro ou falso, o que permite tomar decisões com base nisso.", "Parâmetros de ajuda: Pontos criados deve ser igual a 181."];
+
+
+let contadorTexto = 0;
+let instrucao = document.querySelector('.instrucao')
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    instrucao.textContent = textoMotivador[0]
+})
+
+document.querySelector('.voltarTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 0){
+        return
+    }
+    contadorTexto--;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/6`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})
+
+document.querySelector('.proximoTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 5){
+        return
+    }
+    contadorTexto++;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/6`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../compartilhado/conteudo.css">
     <link rel="stylesheet" href="introducao/conteudo.css">
-    <title>Document</title>
+    <title>Pac-Script</title>
 </head>
 <body data-questao="questao8">
     <audio id="musicaFundo" autoplay loop>
@@ -20,17 +20,15 @@
             <div class="borda"></div>
             <h1 class="titulo">Introdução a Operadores Lógicos</h1>
             <p class="texto">
-                Em programação, às vezes precisamos tomar decisões com base em mais de uma condição. Para isso, usamos os operadores lógicos, que nos ajudam a combinar comparações e criar regras mais complexas. Eles são como palavras que o computador entende para dizer “e”, “ou” e “não”.
-
-                <br><br> O operador && (E) verifica se duas ou mais condições são verdadeiras ao mesmo tempo. Por exemplo, se quisermos saber se um jogador tem vidas maiores que 0 e ainda não pegou todos os pontos, usamos algo como: vidas > 0 && pontosColetados < pontosTotais. O resultado só será verdadeiro se ambas as condições forem verdadeiras.
-                
-                <br><br> Já o operador || (OU) é usado quando basta que uma das condições seja verdadeira. Por exemplo, podemos querer continuar o jogo se o jogador tiver uma vida ou se estiver usando um power-up: vidas > 0 || temPowerUp == true. Se uma das duas condições for verdadeira, o resultado será verdadeiro.
-                
-                <br><br> Por fim, o operador ! (NÃO) serve para inverter um valor lógico. Se algo é verdadeiro, o ! transforma em falso, e vice-versa. Por exemplo, !jogoPausado significa "jogo não está pausado". Esse operador é muito útil quando queremos verificar se uma condição não está acontecendo.
-
-                <br><br> Expressões como se ((!vitoria || tempo == 0) && jogoIniciado == true) são chamadas de expressões compostas, pois combinam mais de uma condição lógica usando operadores como && (E) e || (OU). Quando usamos múltiplos operadores em uma única linha, o computador avalia as partes da expressão com base em uma ordem de precedência, o que pode gerar confusão se não usarmos parênteses.
-
-                <br><br> Entender os operadores lógicos é essencial para criar regras, tomar decisões e controlar o fluxo do programa. Com eles, conseguimos escrever condições mais poderosas e flexíveis, deixando nosso código mais inteligente. Sempre que precisar combinar várias situações, lembre-se de que os operadores lógicos estão ali para ajudar o computador a tomar decisões corretas.
+                Em programação, às vezes precisamos tomar decisões com base em mais de uma condição. Para isso, usamos os operadores lógicos, que ajudam a combinar comparações e criar regras mais complexas. Eles são como palavras que o computador entende para dizer “e”, “ou” e “não”.
+<br><br>
+O operador && (E) verifica se duas ou mais condições são verdadeiras ao mesmo tempo. Por exemplo: vidas > 0 && pontosColetados < pontosTotais. O resultado só será verdadeiro se ambas as condições forem verdadeiras.
+<br><br>
+Já o operador || (OU) é usado quando basta que uma das condições seja verdadeira. Por exemplo: vidas > 0 || temPowerUp == true. Se qualquer uma das duas for verdadeira, o resultado será verdadeiro.
+<br><br>
+O operador ! (NÃO) serve para inverter um valor lógico: se algo é verdadeiro, o ! transforma em falso, e vice-versa. Por exemplo: !jogoPausado significa "jogo não está pausado".
+<br><br>
+Expressões como se ((!vitoria || tempo == 0) && jogoIniciado == true) são chamadas de expressões compostas, pois combinam várias condições lógicas usando operadores como && (E) e || (OU). Sempre que usamos múltiplos operadores, o computador segue uma ordem de precedência, então é importante usar parênteses para evitar confusão.
             </p>
             <div class="next_back">
                 <a href="/fase7/"><button class="button-19" role="button">Voltar para fase 7</button></a>

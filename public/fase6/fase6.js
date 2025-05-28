@@ -970,3 +970,30 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = '/'
     }
   });  
+
+let textoMotivador = ["Nesta fase, você aprenderá como simplificar operações matemáticas em variáveis utilizando os operadores de atribuição composta, como += e -=. Esses operadores permitem modificar o valor de uma variável de forma mais direta, tornando o código mais limpo e fácil de entender.", "Por exemplo, em vez de escrever pontuacao = pontuacao + 10, podemos simplesmente usar pontuacao += 10. Ou se tivermos uma variável ou constante com valor atribuido, como VALORPONTO = 10, podemos escrever pontuacao += VALORPONTO ", "Sua missão é criar um pequeno trecho de pseudocódigo onde o Pac-Man ganha e perde pontos. Para isso, defina duas constantes: uma para o valor de pontos ganhos por coleta e outra para o valor perdido ao sofrer dano. Em seguida, crie uma variável que armazene a pontuação atual e use os operadores += e -= para simular a coleta de pontos e a penalidade por ser atingido."," Lembre-se: constantes devem ser escritas em letras maiúsculas e não podem ser modificadas depois de declaradas!"]
+
+let contadorTexto = 0;
+let instrucao = document.querySelector('.instrucao')
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    instrucao.textContent = textoMotivador[0]
+})
+
+document.querySelector('.voltarTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 0){
+        return
+    }
+    contadorTexto--;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/4`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})
+
+document.querySelector('.proximoTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 3){
+        return
+    }
+    contadorTexto++;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/4`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})

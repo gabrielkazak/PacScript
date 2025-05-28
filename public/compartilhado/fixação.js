@@ -1,3 +1,34 @@
+document.addEventListener('DOMContentLoaded', ()=>{
+    const container = document.querySelector('.container')
+    const body = document.body;
+  
+      let cor = localStorage.getItem('Cor');
+
+      let volume = localStorage.getItem('Volume');
+
+      if(volume){
+        const musica = document.getElementById("musicaFundo");
+
+        volume = volume * 0.01
+        
+        musica.volume = volume;
+
+        musica.play(); 
+    }
+
+      if(cor){
+        console.log('oi')
+          if(cor === 'Fundo Escuro Plano'){
+              body.style.background = 'rgb(22, 22, 22)'
+              container.style.background = 'rgb(22, 22, 22)'
+          } else if(cor == 'Fundo Roxo Plano'){
+              body.style.background = 'rgb(85, 2, 91)'
+              container.style.background = 'rgb(85, 2, 91)'
+          }
+      }
+  })
+  
+
 document.querySelector('.next').addEventListener('click', () => {
     setTimeout(()=>{
         const questaoAtual = document.body.dataset.questao;
@@ -36,32 +67,4 @@ document.querySelector('.next').addEventListener('click', () => {
     },250)
   });
 
-  document.addEventListener('DOMContentLoaded', ()=>{
-    const container = document.querySelector('.container')
-    const body = document.body;
-  
-      let cor = localStorage.getItem('Cor');
-
-      let volume = localStorage.getItem('Volume');
-
-      if(volume){
-        const musica = document.getElementById("musicaFundo");
-
-        volume = volume * 0.01
-        
-        musica.volume = volume;
-
-        musica.play(); 
-    }
-
-      if(cor){
-          if(cor === 'Fundo Escuro Plano'){
-              body.style.background = 'rgb(22, 22, 22)'
-              container.style.background = 'rgb(22, 22, 22)'
-          } else if(cor == 'Fundo Roxo Plano'){
-              body.style.background = 'rgb(85, 2, 91)'
-              container.style.background = 'rgb(85, 2, 91)'
-          }
-      }
-  })
   

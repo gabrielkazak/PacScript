@@ -546,4 +546,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if(!localStorage.getItem('fase4')){
         window.location.href = '/'
     }
-  });  
+  }); 
+
+let textoMotivador = ["Nesta fase, você aprenderá sobre a importância das constantes em um código. Enquanto variáveis armazenam valores que mudam ao longo do tempo, constantes guardam valores fixos que nunca devem ser alterados durante a execução. Isso é essencial para manter a lógica do programa segura e evitar bugs difíceis de encontrar.", "Abaixo está um trecho de pseudocódigo com um erro: uma variável foi usada para guardar o valor dos pontos ganhos por coleta, mas ela está sendo sobrescrita acidentalmente em outro ponto do código. Sua missão é identificar esse valor que nunca deveria mudar, mudando sua chamada, de uma variável para uma constante, e excluindo as linhas de código que estão causando problemas.", "Parâmetros de ajuda: É uma boa prática escrever constantes em letra maiúscula, como PONTOS.Lembre-se de colocar o tipo de dado da variável ao seu lado, como pontosTotais = 0 (int)"]
+
+let contadorTexto = 0;
+let instrucao = document.querySelector('.instrucao')
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    instrucao.textContent = textoMotivador[0]
+})
+
+document.querySelector('.voltarTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 0){
+        return
+    }
+    contadorTexto--;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/3`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})
+
+document.querySelector('.proximoTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 2){
+        return
+    }
+    contadorTexto++;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/3`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})

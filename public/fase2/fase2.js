@@ -551,3 +551,29 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('ultimoCaminho', caminhoAtual);
   });  
 
+let textoMotivador = ["Nesta fase, o desafio é criar a base fundamental do jogo: O mapa, o Pac-Man e permitir que ele se movimente pelo mapa, tudo isso, claro, com pseudocódigo.","Na hora de criar o código, seja específico, descreva o mapa com sua quantidade de linhas e colunas e uma cor para as bordas. A respeito do Pac-Man, fale sobre o formato circular dele, a cor e posicione-o centralizado no mapa. E sobre sua movimentação, descreva o plano de movimento dele e para que direções ele pode ir.", "Lembre-se: o computador faz exatamente o que você manda, portanto, ao escrever o pseudocódigo, não basta simplesmente dizer “criar mapa” ou “mover Pac-Man”, cada detalhe precisa ser especificado.", "Parâmetros de ajuda: Linhas = 21, Colunas = 19"]
+
+let contadorTexto = 0;
+let instrucao = document.querySelector('.instrucao')
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    instrucao.textContent = textoMotivador[0]
+})
+
+document.querySelector('.voltarTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 0){
+        return
+    }
+    contadorTexto--;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/4`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})
+
+document.querySelector('.proximoTexto').addEventListener('click', ()=>{
+    if(contadorTexto == 3){
+        return
+    }
+    contadorTexto++;
+    document.querySelector('.proximoTexto').textContent = `Proximo ${contadorTexto+1}/4`
+    instrucao.textContent = textoMotivador[contadorTexto]
+})
